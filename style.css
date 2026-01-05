@@ -241,7 +241,7 @@ header h1 {
     position: fixed;
     top: 16px;
     right: 16px;
-    color: var(--text-dark); /* Preto */
+    color: #000 !important; /* Preto fixo */
     font-size: 32px;
     font-weight: 300;
     width: 44px;
