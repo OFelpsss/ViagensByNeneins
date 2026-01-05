@@ -1,4 +1,11 @@
-// Dados das viagens - lugares reais que visitamos!
+// Cache busting automático para style.css
+(function() {
+    var timestamp = Date.now();
+    var css = document.querySelector('link[href="style.css"]');
+    if (css) {
+        css.href = 'style.css?v=' + timestamp;
+    }
+})();
 // Dados das viagens - lugares reais que visitamos!
 const trips = [
     {
