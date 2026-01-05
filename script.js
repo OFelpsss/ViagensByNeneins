@@ -1,4 +1,5 @@
 // Dados das viagens - lugares reais que visitamos!
+// Dados das viagens - lugares reais que visitamos!
 const trips = [
     {
         id: 1,
@@ -9,16 +10,16 @@ const trips = [
         title: "Suíça Brasileira",
         description: "Campos do Jordão, conhecida como a Suíça Brasileira, nos encantou com sua arquitetura alpina e clima europeu! 🌲⛰️ A cidade mais alta do Brasil nos recebeu com suas ruas de paralelepípedos, chocolates artesanais deliciosos e restaurantes aconchegantes. ❄️✨",
         photos: [
-            { url: "/fotos/01-campos-do-jordao/foto1.jpeg", alt: "Campos do Jordão" },
-            { url: "/fotos/01-campos-do-jordao/foto2.jpg", alt: "Campos do Jordão" },
-            { url: "/fotos/01-campos-do-jordao/foto3.jpg", alt: "Campos do Jordão" },
-            { url: "/fotos/01-campos-do-jordao/foto4.jpg", alt: "Campos do Jordão" },
-            { url: "/fotos/01-campos-do-jordao/foto5.jpg", alt: "Campos do Jordão" },
-            { url: "/fotos/01-campos-do-jordao/foto6.jpg", alt: "Campos do Jordão" },
-            { url: "/fotos/01-campos-do-jordao/foto7.jpg", alt: "Campos do Jordão" },
-            { url: "/fotos/01-campos-do-jordao/foto8.jpg", alt: "Campos do Jordão" },
-            { url: "/fotos/01-campos-do-jordao/foto9.jpg", alt: "Campos do Jordão" },
-            { url: "/fotos/01-campos-do-jordao/foto10.jpg", alt: "Campos do Jordão" },
+            { url: "fotos/01-campos-do-jordao/foto1.jpeg", alt: "Campos do Jordão" },
+            { url: "fotos/01-campos-do-jordao/foto2.jpg", alt: "Campos do Jordão" },
+            { url: "fotos/01-campos-do-jordao/foto3.jpg", alt: "Campos do Jordão" },
+            { url: "fotos/01-campos-do-jordao/foto4.jpg", alt: "Campos do Jordão" },
+            { url: "fotos/01-campos-do-jordao/foto5.jpg", alt: "Campos do Jordão" },
+            { url: "fotos/01-campos-do-jordao/foto6.jpg", alt: "Campos do Jordão" },
+            { url: "fotos/01-campos-do-jordao/foto7.jpg", alt: "Campos do Jordão" },
+            { url: "fotos/01-campos-do-jordao/foto8.jpg", alt: "Campos do Jordão" },
+            { url: "fotos/01-campos-do-jordao/foto9.jpg", alt: "Campos do Jordão" },
+            { url: "fotos/01-campos-do-jordao/foto10.jpg", alt: "Campos do Jordão" },
         ]
     },
     {
@@ -30,26 +31,26 @@ const trips = [
         title: "Paraíso nas Montanhas",
         description: "Monte Verde, o distrito mineiro em plena Serra da Mantiqueira, nos conquistou com sua tranquilidade! 🌳💧 A pequena vila nos presenteou com trilhas pela Mata Atlântica. Experimentamos a autêntica comida mineira, exploramos as lojas de artesanato local e nos encantamos com o jeito acolhedor do povo. Cada cantinho dessa vila charmosa respira paz e natureza preservada! 🏔️🌄",
         photos: [
-            { url: "/fotos/02-monte-verde/foto1.jpeg", alt: "Monte Verde" },
-            { url: "/fotos/02-monte-verde/foto2.jpeg", alt: "Monte Verde" },
-            { url: "/fotos/02-monte-verde/foto3.jpeg", alt: "Monte Verde" },
-            { url: "/fotos/02-monte-verde/foto4.jpeg", alt: "Monte Verde" },
-            { url: "/fotos/02-monte-verde/foto5.jpeg", alt: "Monte Verde" },
-            { url: "/fotos/02-monte-verde/foto6.jpeg", alt: "Monte Verde" },
-            { url: "/fotos/02-monte-verde/foto7.jpeg", alt: "Monte Verde" },
-            { url: "/fotos/02-monte-verde/foto8.jpeg", alt: "Monte Verde" },
-            { url: "/fotos/02-monte-verde/foto9.jpeg", alt: "Monte Verde" },
-            { url: "/fotos/02-monte-verde/foto10.jpeg", alt: "Monte Verde" },
-            { url: "/fotos/02-monte-verde/foto11.jpeg", alt: "Monte Verde" },
-            { url: "/fotos/02-monte-verde/foto12.jpeg", alt: "Monte Verde" },
-            { url: "/fotos/02-monte-verde/foto13.jpeg", alt: "Monte Verde" },
-            { url: "/fotos/02-monte-verde/foto14.jpeg", alt: "Monte Verde" },
-            { url: "/fotos/02-monte-verde/foto15.jpeg", alt: "Monte Verde" },
-            { url: "/fotos/02-monte-verde/foto16.jpeg", alt: "Monte Verde" },
-            { url: "/fotos/02-monte-verde/foto17.jpeg", alt: "Monte Verde" },
-            { url: "/fotos/02-monte-verde/foto18.jpeg", alt: "Monte Verde" },
-            { url: "/fotos/02-monte-verde/foto19.jpeg", alt: "Monte Verde" },
-            { url: "/fotos/02-monte-verde/foto20.jpeg", alt: "Monte Verde" },
+            { url: "fotos/02-monte-verde/foto1.jpeg", alt: "Monte Verde" },
+            { url: "fotos/02-monte-verde/foto2.jpeg", alt: "Monte Verde" },
+            { url: "fotos/02-monte-verde/foto3.jpeg", alt: "Monte Verde" },
+            { url: "fotos/02-monte-verde/foto4.jpeg", alt: "Monte Verde" },
+            { url: "fotos/02-monte-verde/foto5.jpeg", alt: "Monte Verde" },
+            { url: "fotos/02-monte-verde/foto6.jpeg", alt: "Monte Verde" },
+            { url: "fotos/02-monte-verde/foto7.jpeg", alt: "Monte Verde" },
+            { url: "fotos/02-monte-verde/foto8.jpeg", alt: "Monte Verde" },
+            { url: "fotos/02-monte-verde/foto9.jpeg", alt: "Monte Verde" },
+            { url: "fotos/02-monte-verde/foto10.jpeg", alt: "Monte Verde" },
+            { url: "fotos/02-monte-verde/foto11.jpeg", alt: "Monte Verde" },
+            { url: "fotos/02-monte-verde/foto12.jpeg", alt: "Monte Verde" },
+            { url: "fotos/02-monte-verde/foto13.jpeg", alt: "Monte Verde" },
+            { url: "fotos/02-monte-verde/foto14.jpeg", alt: "Monte Verde" },
+            { url: "fotos/02-monte-verde/foto15.jpeg", alt: "Monte Verde" },
+            { url: "fotos/02-monte-verde/foto16.jpeg", alt: "Monte Verde" },
+            { url: "fotos/02-monte-verde/foto17.jpeg", alt: "Monte Verde" },
+            { url: "fotos/02-monte-verde/foto18.jpeg", alt: "Monte Verde" },
+            { url: "fotos/02-monte-verde/foto19.jpeg", alt: "Monte Verde" },
+            { url: "fotos/02-monte-verde/foto20.jpeg", alt: "Monte Verde" },
         ]
     },
     {
@@ -61,21 +62,21 @@ const trips = [
         title: "Diversão Aquática",
         description: "O Thermas da Mata em Cotia nos surpreendeu com seu cenário paradisíaco! 💦🌴 Localizado na Estrada Morro Grande, o parque temático oferece águas termais naturais, tobogãs emocionantes e piscinas relaxantes cercadas por muito verde. Mas o momento mais especial foi quando assistimos ao show do Hungria, nosso cantor preferido! 🎤🔥 Cantamos juntos todas as músicas, pulamos, dançamos e vivemos um dia inesquecível. O parque se transformou em um palco de alegria e energia positiva! 🎶💖",
         photos: [
-            { url: "/fotos/03-thermas-da-mata/foto1.jpeg", alt: "Thermas da Mata" },
-            { url: "/fotos/03-thermas-da-mata/foto2.jpeg", alt: "Thermas da Mata" },
-            { url: "/fotos/03-thermas-da-mata/foto3.jpeg", alt: "Thermas da Mata" },
-            { url: "/fotos/03-thermas-da-mata/foto4.jpeg", alt: "Thermas da Mata" },
-            { url: "/fotos/03-thermas-da-mata/foto5.jpeg", alt: "Thermas da Mata" },
-            { url: "/fotos/03-thermas-da-mata/foto6.jpeg", alt: "Thermas da Mata" },
-            { url: "/fotos/03-thermas-da-mata/foto7.jpeg", alt: "Thermas da Mata" },
-            { url: "/fotos/03-thermas-da-mata/foto8.jpeg", alt: "Thermas da Mata" },
-            { url: "/fotos/03-thermas-da-mata/foto9.jpeg", alt: "Thermas da Mata" },
-            { url: "/fotos/03-thermas-da-mata/foto10.jpeg", alt: "Thermas da Mata" },
-            { url: "/fotos/03-thermas-da-mata/foto11.jpeg", alt: "Thermas da Mata" },
-            { url: "/fotos/03-thermas-da-mata/foto12.jpeg", alt: "Thermas da Mata" },
-            { url: "/fotos/03-thermas-da-mata/foto13.jpeg", alt: "Thermas da Mata" },
-            { url: "/fotos/03-thermas-da-mata/foto14.jpeg", alt: "Thermas da Mata" },
-            { url: "/fotos/03-thermas-da-mata/foto15.jpeg", alt: "Thermas da Mata" },
+            { url: "fotos/03-thermas-da-mata/foto1.jpeg", alt: "Thermas da Mata" },
+            { url: "fotos/03-thermas-da-mata/foto2.jpeg", alt: "Thermas da Mata" },
+            { url: "fotos/03-thermas-da-mata/foto3.jpeg", alt: "Thermas da Mata" },
+            { url: "fotos/03-thermas-da-mata/foto4.jpeg", alt: "Thermas da Mata" },
+            { url: "fotos/03-thermas-da-mata/foto5.jpeg", alt: "Thermas da Mata" },
+            { url: "fotos/03-thermas-da-mata/foto6.jpeg", alt: "Thermas da Mata" },
+            { url: "fotos/03-thermas-da-mata/foto7.jpeg", alt: "Thermas da Mata" },
+            { url: "fotos/03-thermas-da-mata/foto8.jpeg", alt: "Thermas da Mata" },
+            { url: "fotos/03-thermas-da-mata/foto9.jpeg", alt: "Thermas da Mata" },
+            { url: "fotos/03-thermas-da-mata/foto10.jpeg", alt: "Thermas da Mata" },
+            { url: "fotos/03-thermas-da-mata/foto11.jpeg", alt: "Thermas da Mata" },
+            { url: "fotos/03-thermas-da-mata/foto12.jpeg", alt: "Thermas da Mata" },
+            { url: "fotos/03-thermas-da-mata/foto13.jpeg", alt: "Thermas da Mata" },
+            { url: "fotos/03-thermas-da-mata/foto14.jpeg", alt: "Thermas da Mata" },
+            { url: "fotos/03-thermas-da-mata/foto15.jpeg", alt: "Thermas da Mata" },
         ]
     },
     {
@@ -87,7 +88,7 @@ const trips = [
         title: "Aventura Radical",
         description: "Wet n Wild, um dos maiores parques aquáticos do Brasil, nos proporcionou um dia de adrenalina pura! 🌊🎢 Foi um dia risadas e muita diversão aquática! 💦😄",
         photos: [
-            { url: "/fotos/04-wet-n-wild/foto1.jpeg", alt: "Wet n Wild" },
+            { url: "fotos/04-wet-n-wild/foto1.jpeg", alt: "Wet n Wild" },
         ]
     },
     {
@@ -99,12 +100,12 @@ const trips = [
         title: "Diversão Total",
         description: "Hopi Hari, o maior parque temático do Brasil, nos levou a uma jornada de diversão! 🎡🎪 Exploramos todas as áreas temáticas. O parque, com sua atmosfera mágica, nos fez voltar à infância e criar memórias alegres! 🎢✨",
         photos: [
-            { url: "/fotos/05-hopi-hari/foto1.jpeg", alt: "Hopi Hari" },
-            { url: "/fotos/05-hopi-hari/foto2.jpeg", alt: "Hopi Hari" },
-            { url: "/fotos/05-hopi-hari/foto3.jpeg", alt: "Hopi Hari" },
-            { url: "/fotos/05-hopi-hari/foto4.jpeg", alt: "Hopi Hari" },
-            { url: "/fotos/05-hopi-hari/foto5.jpeg", alt: "Hopi Hari" },
-            { url: "/fotos/05-hopi-hari/foto6.jpeg", alt: "Hopi Hari" },
+            { url: "fotos/05-hopi-hari/foto1.jpeg", alt: "Hopi Hari" },
+            { url: "fotos/05-hopi-hari/foto2.jpeg", alt: "Hopi Hari" },
+            { url: "fotos/05-hopi-hari/foto3.jpeg", alt: "Hopi Hari" },
+            { url: "fotos/05-hopi-hari/foto4.jpeg", alt: "Hopi Hari" },
+            { url: "fotos/05-hopi-hari/foto5.jpeg", alt: "Hopi Hari" },
+            { url: "fotos/05-hopi-hari/foto6.jpeg", alt: "Hopi Hari" },
         ]
     },
     {
@@ -116,19 +117,18 @@ const trips = [
         title: "Curtindo Bertioga",
         description: "Bertioga, o primeiro povoado do litoral paulista, nos recebeu com suas praias paradisíacas! 🏖️🌊 Conhecida por sua rica história (foi fundada em 1547) e natureza preservada. Bertioga combina perfeitamente história, natureza e belas praias! 🏝️🌴",
         photos: [
-            { url: "/fotos/06-bertioga/foto1.jpeg", alt: "Bertioga" },
-            { url: "/fotos/06-bertioga/foto2.jpeg", alt: "Bertioga" },
-            { url: "/fotos/06-bertioga/foto3.jpeg", alt: "Bertioga" },
-            { url: "/fotos/06-bertioga/foto4.jpeg", alt: "Bertioga" },
-            { url: "/fotos/06-bertioga/foto5.jpeg", alt: "Bertioga" },
-            { url: "/fotos/06-bertioga/foto6.jpeg", alt: "Bertioga" },
-            { url: "/fotos/06-bertioga/foto7.jpeg", alt: "Bertioga" },
-            { url: "/fotos/06-bertioga/foto8.jpeg", alt: "Bertioga" },
+            { url: "fotos/06-bertioga/foto1.jpeg", alt: "Bertioga" },
+            { url: "fotos/06-bertioga/foto2.jpeg", alt: "Bertioga" },
+            { url: "fotos/06-bertioga/foto3.jpeg", alt: "Bertioga" },
+            { url: "fotos/06-bertioga/foto4.jpeg", alt: "Bertioga" },
+            { url: "fotos/06-bertioga/foto5.jpeg", alt: "Bertioga" },
+            { url: "fotos/06-bertioga/foto6.jpeg", alt: "Bertioga" },
+            { url: "fotos/06-bertioga/foto7.jpeg", alt: "Bertioga" },
+            { url: "fotos/06-bertioga/foto8.jpeg", alt: "Bertioga" },
         ]
     }
 ];
-
-// Inicializar o mapa
+// Inicializar o mapa de viagens
 let map;
 let markers = [];
 
