@@ -369,6 +369,9 @@ function openTripModal(tripId) {
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
 
+    // Atualizar URL com hash
+    window.history.pushState(null, '', `#trip-${tripId}`);
+
     // Fechar modal ao clicar no X
     const closeBtn = document.querySelector('.close');
     closeBtn.onclick = function() {
@@ -395,6 +398,11 @@ function closeTripModal() {
     const modal = document.getElementById('trip-modal');
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
+    
+    // Remover hash da URL
+    if (window.location.hash) {
+        window.history.pushState(null, '', window.location.pathname + window.location.search);
+    }
 }
 
 // Visualizador de foto melhorado
@@ -707,6 +715,34 @@ function showNotification(message) {
     }, 2000);
 }
 
+// Verificar hash na URL e abrir viagem correspondente
+function checkUrlHash() {
+    const hash = window.location.hash;
+    if (hash && hash.startsWith('#trip-')) {
+        const tripId = parseInt(hash.replace('#trip-', ''));
+        if (tripId && trips.find(t => t.id === tripId)) {
+            // Aguardar o mapa carregar antes de abrir o modal
+            setTimeout(() => {
+                openTripModal(tripId);
+                
+                // Centralizar o mapa na viagem
+                const trip = trips.find(t => t.id === tripId);
+                if (trip && map) {
+                    map.setView([trip.lat, trip.lng], 10, { animate: true });
+                    
+                    // Abrir o popup do marcador
+                    const marker = markers.find(m => m.tripId === tripId);
+                    if (marker) {
+                        setTimeout(() => {
+                            marker.openPopup();
+                        }, 500);
+                    }
+                }
+            }, 1000);
+        }
+    }
+}
+
 // Inicializar quando a página carregar
 document.addEventListener('DOMContentLoaded', function() {
     initMap();
@@ -714,7 +750,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Ajustar o tamanho do mapa quando a janela redimensionar
     setTimeout(function() {
         map.invalidateSize();
+        // Verificar hash após o mapa carregar
+        checkUrlHash();
     }, 100);
+});
+
+// Ouvir mudanças no hash (quando o usuário navega com botões voltar/avançar)
+window.addEventListener('hashchange', function() {
+    checkUrlHash();
 });
 
 // Ajustar o mapa quando a janela redimensionar
