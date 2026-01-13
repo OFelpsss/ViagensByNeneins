@@ -218,6 +218,10 @@ const trips = [
 // Inicializar o mapa de viagens
 let map;
 let markers = [];
+let currentTripId = null; // Para compartilhamento
+let currentPhotoIndex = 0; // Para navegação de fotos
+let currentPhotos = []; // Array de fotos atual
+let currentZoom = 1; // Zoom atual da foto
 
 function initMap() {
     // Calcular o centro e zoom ideal para mostrar todos os marcadores
@@ -334,6 +338,8 @@ function openTripModal(tripId) {
     const trip = trips.find(t => t.id === tripId);
     if (!trip) return;
 
+    currentTripId = tripId; // Armazenar para compartilhamento
+
     const modal = document.getElementById('trip-modal');
     const title = document.getElementById('modal-title');
     const location = document.getElementById('modal-location');
@@ -391,52 +397,213 @@ function closeTripModal() {
     document.body.style.overflow = 'auto';
 }
 
-// Visualizador de foto em tela cheia (simplificado)
+// Visualizador de foto melhorado
 function openPhotoViewer(tripId, photoIndex) {
     const trip = trips.find(t => t.id === tripId);
     if (!trip || !trip.photos[photoIndex]) return;
 
-    // Criar overlay para visualização de foto
-    const viewer = document.createElement('div');
-    viewer.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.95);
-        z-index: 2000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-    `;
+    currentPhotoIndex = photoIndex;
+    currentPhotos = trip.photos;
+    currentZoom = 1;
 
-    const img = document.createElement('img');
+    const viewer = document.getElementById('photo-viewer');
+    const img = document.getElementById('photo-viewer-img');
+    const counter = document.getElementById('photo-viewer-counter');
+
     img.src = trip.photos[photoIndex].url;
-    img.style.cssText = `
-        max-width: 90%;
-        max-height: 90%;
-        object-fit: contain;
-        border-radius: 10px;
-    `;
+    img.style.transform = 'scale(1)';
+    img.style.cursor = 'grab';
+    counter.textContent = `${photoIndex + 1} / ${trip.photos.length}`;
 
-    viewer.appendChild(img);
-    document.body.appendChild(viewer);
+    viewer.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
 
-    viewer.onclick = function() {
-        document.body.removeChild(viewer);
+    // Fechar visualizador
+    const closeBtn = viewer.querySelector('.photo-viewer-close');
+    closeBtn.onclick = closePhotoViewer;
+
+    // Fechar ao clicar no fundo
+    viewer.onclick = function(e) {
+        if (e.target === viewer) {
+            closePhotoViewer();
+        }
     };
+
+    // Navegação por teclado
+    document.addEventListener('keydown', handlePhotoViewerKeyboard);
+}
+
+// Fechar visualizador de fotos
+function closePhotoViewer() {
+    const viewer = document.getElementById('photo-viewer');
+    viewer.style.display = 'none';
+    document.body.style.overflow = 'auto';
+    currentZoom = 1;
+    document.removeEventListener('keydown', handlePhotoViewerKeyboard);
+}
+
+// Navegar entre fotos
+function navigatePhoto(direction) {
+    if (!currentPhotos || currentPhotos.length === 0) return;
+
+    currentPhotoIndex += direction;
+
+    if (currentPhotoIndex < 0) {
+        currentPhotoIndex = currentPhotos.length - 1;
+    } else if (currentPhotoIndex >= currentPhotos.length) {
+        currentPhotoIndex = 0;
+    }
+
+    const img = document.getElementById('photo-viewer-img');
+    const counter = document.getElementById('photo-viewer-counter');
+    
+    img.src = currentPhotos[currentPhotoIndex].url;
+    counter.textContent = `${currentPhotoIndex + 1} / ${currentPhotos.length}`;
+    currentZoom = 1;
+    img.style.transform = 'scale(1)';
+}
+
+// Zoom na foto
+function zoomPhoto(factor) {
+    const img = document.getElementById('photo-viewer-img');
+    currentZoom *= factor;
+    
+    if (currentZoom < 0.5) currentZoom = 0.5;
+    if (currentZoom > 3) currentZoom = 3;
+    
+    img.style.transform = `scale(${currentZoom})`;
+    img.style.cursor = currentZoom > 1 ? 'grab' : 'default';
+}
+
+// Navegação por teclado
+function handlePhotoViewerKeyboard(event) {
+    if (event.key === 'Escape') {
+        closePhotoViewer();
+    } else if (event.key === 'ArrowLeft') {
+        navigatePhoto(-1);
+    } else if (event.key === 'ArrowRight') {
+        navigatePhoto(1);
+    } else if (event.key === '+' || event.key === '=') {
+        zoomPhoto(1.2);
+    } else if (event.key === '-') {
+        zoomPhoto(0.8);
+    }
+}
+
+// Suporte para swipe no mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener('touchstart', function(e) {
+    const viewer = document.getElementById('photo-viewer');
+    if (viewer.style.display === 'flex') {
+        touchStartX = e.changedTouches[0].screenX;
+    }
+});
+
+document.addEventListener('touchend', function(e) {
+    const viewer = document.getElementById('photo-viewer');
+    if (viewer.style.display === 'flex') {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }
+});
+
+function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+    
+    if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+            navigatePhoto(1); // Swipe esquerda = próxima foto
+        } else {
+            navigatePhoto(-1); // Swipe direita = foto anterior
+        }
+    }
+}
+
+// Extrair nome da cidade do campo location
+function extractCityName(location) {
+    // Remove espaços extras e normaliza
+    let city = location.trim();
+    
+    // Casos especiais conhecidos
+    if (city.includes('Cotia')) {
+        return 'Cotia';
+    }
+    if (city.includes('Mogi das Cruzes')) {
+        return 'Mogi das Cruzes';
+    }
+    if (city.includes('Campos do Jordão')) {
+        return 'Campos do Jordão';
+    }
+    if (city.includes('Monte Verde')) {
+        return 'Monte Verde';
+    }
+    if (city.includes('Bertioga')) {
+        return 'Bertioga';
+    }
+    
+    // Remove prefixos comuns (Parque, Exposição, Show, etc.) antes de vírgula ou traço
+    city = city.replace(/^(Parque|Parque Aquático|Parque de Diversão|Exposição|Show|Hungria).*?[—,]\s*/i, '');
+    
+    // Extrai a cidade - procura padrão "Cidade, Estado" ou "Cidade — Estado"
+    // Primeiro tenta encontrar antes da vírgula
+    if (city.includes(',')) {
+        const parts = city.split(',');
+        city = parts[0].trim();
+        
+        // Se a parte antes da vírgula contém traço, pega a parte antes do traço
+        if (city.includes(' - ') || city.includes(' — ')) {
+            const dashParts = city.split(/[—-]/);
+            city = dashParts[0].trim();
+        }
+    } else if (city.includes(' — ') || city.includes(' - ')) {
+        // Se não tem vírgula mas tem traço
+        const parts = city.split(/[—-]/);
+        city = parts[0].trim();
+    }
+    
+    // Remove sufixos comuns
+    city = city.replace(/\s*[—-]\s*$/, '');
+    city = city.replace(/\s*,\s*$/, '');
+    
+    // Normaliza variações de São Paulo
+    if (city.toLowerCase().includes('são paulo') || 
+        city.toLowerCase() === 'sp' || 
+        city.toLowerCase() === 'são paulo' ||
+        city === 'São Paulo' ||
+        city === '') {
+        return 'São Paulo';
+    }
+    
+    return city.trim();
+}
+
+// Contar cidades únicas
+function countUniqueCities() {
+    const cities = new Set();
+    
+    trips.forEach(trip => {
+        const city = extractCityName(trip.location);
+        if (city) {
+            cities.add(city);
+        }
+    });
+    
+    return cities.size;
 }
 
 // Atualizar estatísticas
 function updateStats() {
     const totalTrips = trips.length;
+    const totalCities = countUniqueCities();
     const totalCountries = 1; // Todas as viagens foram no Brasil
     const totalPhotos = trips.reduce((sum, trip) => sum + trip.photos.length, 0);
 
     // Animar contadores
     animateCounter('total-trips', totalTrips);
+    animateCounter('total-cities', totalCities);
     animateCounter('total-countries', totalCountries);
     animateCounter('total-photos', totalPhotos);
 }
@@ -457,6 +624,87 @@ function animateCounter(elementId, target) {
             element.textContent = Math.floor(current);
         }
     }, 16);
+}
+
+// Compartilhar viagem nas redes sociais
+function shareTrip(platform) {
+    if (!currentTripId) return;
+    
+    const trip = trips.find(t => t.id === currentTripId);
+    if (!trip) return;
+
+    const url = window.location.href;
+    const text = `🌍 ${trip.title} - ${trip.location}\n\n${trip.description}\n\nVeja mais em: ${url}`;
+    const encodedText = encodeURIComponent(text);
+    const encodedUrl = encodeURIComponent(url);
+
+    let shareUrl = '';
+
+    switch(platform) {
+        case 'whatsapp':
+            shareUrl = `https://wa.me/?text=${encodedText}`;
+            window.open(shareUrl, '_blank');
+            break;
+        
+        case 'copy':
+            // Copiar link para área de transferência
+            const linkToCopy = `${url}#trip-${trip.id}`;
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(linkToCopy).then(() => {
+                    showNotification('Link copiado! 📋');
+                }).catch(() => {
+                    fallbackCopyText(linkToCopy);
+                });
+            } else {
+                fallbackCopyText(linkToCopy);
+            }
+            break;
+    }
+}
+
+// Fallback para copiar texto (navegadores antigos)
+function fallbackCopyText(text) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    
+    try {
+        document.execCommand('copy');
+        showNotification('Link copiado! 📋');
+    } catch (err) {
+        showNotification('Erro ao copiar. Tente novamente.');
+    }
+    
+    document.body.removeChild(textArea);
+}
+
+// Mostrar notificação
+function showNotification(message) {
+    // Remove notificação anterior se existir
+    const existing = document.querySelector('.notification');
+    if (existing) {
+        existing.remove();
+    }
+
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.textContent = message;
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 10);
+
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 2000);
 }
 
 // Inicializar quando a página carregar

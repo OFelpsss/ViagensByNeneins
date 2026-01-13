@@ -30,6 +30,10 @@
                 <span class="stat-label">Viagens</span>
             </div>
             <div class="stat-card">
+                <span class="stat-number" id="total-cities">0</span>
+                <span class="stat-label">Cidades</span>
+            </div>
+            <div class="stat-card">
                 <span class="stat-number" id="total-countries">0</span>
                 <span class="stat-label">Países</span>
             </div>
@@ -51,7 +55,33 @@
             </div>
             <div class="modal-body">
                 <div id="modal-description"></div>
+                <div class="share-buttons" id="share-buttons">
+                    <button class="share-btn share-whatsapp" onclick="shareTrip('whatsapp')" title="Compartilhar no WhatsApp">
+                        <span>📱</span> WhatsApp
+                    </button>
+                    <button class="share-btn share-copy" onclick="shareTrip('copy')" title="Copiar link">
+                        <span>🔗</span> Copiar Link
+                    </button>
+                </div>
                 <div id="photo-gallery" class="photo-gallery"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Visualizador de fotos melhorado -->
+    <div id="photo-viewer" class="photo-viewer">
+        <span class="photo-viewer-close">&times;</span>
+        <button class="photo-viewer-prev" onclick="navigatePhoto(-1)">‹</button>
+        <button class="photo-viewer-next" onclick="navigatePhoto(1)">›</button>
+        <div class="photo-viewer-content">
+            <img id="photo-viewer-img" src="" alt="">
+            <div class="photo-viewer-info">
+                <span id="photo-viewer-counter"></span>
+            </div>
+            <div class="photo-viewer-zoom-controls">
+                <button class="zoom-btn" onclick="zoomPhoto(1.5)" title="Ampliar">🔍+</button>
+                <button class="zoom-btn" onclick="zoomPhoto(1)" title="Resetar zoom">🔍</button>
+                <button class="zoom-btn" onclick="zoomPhoto(0.5)" title="Reduzir">🔍-</button>
             </div>
         </div>
     </div>
