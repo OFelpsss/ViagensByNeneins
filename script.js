@@ -111,6 +111,15 @@ const trips = [
         description: "Wet n Wild, um dos maiores parques aquáticos do Brasil, nos proporcionou um dia de adrenalina pura! 🌊🎢 Foi um dia risadas e muita diversão aquática! 💦😄",
         photos: [
             { url: "fotos/04-wet-n-wild/foto1.jpeg", alt: "Wet n Wild" },
+            { url: "fotos/04-wet-n-wild/foto2.jpg", alt: "Wet n Wild" },
+            { url: "fotos/04-wet-n-wild/foto3.jpg", alt: "Wet n Wild" },
+            { url: "fotos/04-wet-n-wild/foto4.jpg", alt: "Wet n Wild" },
+            { url: "fotos/04-wet-n-wild/foto5.jpg", alt: "Wet n Wild" },
+            { url: "fotos/04-wet-n-wild/foto6.jpg", alt: "Wet n Wild" },
+            { url: "fotos/04-wet-n-wild/foto7.jpg", alt: "Wet n Wild" },
+            { url: "fotos/04-wet-n-wild/foto8.jpg", alt: "Wet n Wild" },
+            { url: "fotos/04-wet-n-wild/foto9.jpg", alt: "Wet n Wild" },
+            { url: "fotos/04-wet-n-wild/foto10.jpg", alt: "Wet n Wild" },
         ]
     },
     {
