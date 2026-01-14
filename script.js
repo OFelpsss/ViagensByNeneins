@@ -24,9 +24,19 @@ const trips = [
             { url: "fotos/01-campos-do-jordao/foto5.jpg", alt: "Campos do Jordão" },
             { url: "fotos/01-campos-do-jordao/foto6.jpg", alt: "Campos do Jordão" },
             { url: "fotos/01-campos-do-jordao/foto7.jpg", alt: "Campos do Jordão" },
-            { url: "fotos/01-campos-do-jordao/foto8.jpg", alt: "Campos do Jordão" },
+            { url: "fotos/01-campos-do-jordao/foto8.jpeg", alt: "Campos do Jordão" },
             { url: "fotos/01-campos-do-jordao/foto9.jpg", alt: "Campos do Jordão" },
             { url: "fotos/01-campos-do-jordao/foto10.jpg", alt: "Campos do Jordão" },
+            { url: "fotos/01-campos-do-jordao/foto11.jpeg", alt: "Campos do Jordão" },
+            { url: "fotos/01-campos-do-jordao/foto12.jpeg", alt: "Campos do Jordão" },
+            { url: "fotos/01-campos-do-jordao/foto13.jpeg", alt: "Campos do Jordão" },
+            { url: "fotos/01-campos-do-jordao/foto14.jpeg", alt: "Campos do Jordão" },
+            { url: "fotos/01-campos-do-jordao/foto15.jpeg", alt: "Campos do Jordão" },
+            { url: "fotos/01-campos-do-jordao/foto16.jpeg", alt: "Campos do Jordão" },
+            { url: "fotos/01-campos-do-jordao/foto17.jpeg", alt: "Campos do Jordão" },
+            { url: "fotos/01-campos-do-jordao/foto18.jpeg", alt: "Campos do Jordão" },
+            { url: "fotos/01-campos-do-jordao/foto19.jpeg", alt: "Campos do Jordão" },
+            { url: "fotos/01-campos-do-jordao/foto20.jpeg", alt: "Campos do Jordão" },
         ]
     },
     {
@@ -84,6 +94,11 @@ const trips = [
             { url: "fotos/03-thermas-da-mata/foto13.jpeg", alt: "Thermas da Mata" },
             { url: "fotos/03-thermas-da-mata/foto14.jpeg", alt: "Thermas da Mata" },
             { url: "fotos/03-thermas-da-mata/foto15.jpeg", alt: "Thermas da Mata" },
+            { url: "fotos/03-thermas-da-mata/foto16.jpeg", alt: "Thermas da Mata" },
+            { url: "fotos/03-thermas-da-mata/foto17.jpeg", alt: "Thermas da Mata" },
+            { url: "fotos/03-thermas-da-mata/foto18.jpeg", alt: "Thermas da Mata" },
+            { url: "fotos/03-thermas-da-mata/foto19.jpeg", alt: "Thermas da Mata" },
+            { url: "fotos/03-thermas-da-mata/foto20.jpeg", alt: "Thermas da Mata" },
         ]
     },
     {
@@ -113,6 +128,14 @@ const trips = [
             { url: "fotos/05-hopi-hari/foto4.jpeg", alt: "Hopi Hari" },
             { url: "fotos/05-hopi-hari/foto5.jpeg", alt: "Hopi Hari" },
             { url: "fotos/05-hopi-hari/foto6.jpeg", alt: "Hopi Hari" },
+            { url: "fotos/05-hopi-hari/foto7.jpeg", alt: "Hopi Hari" },
+            { url: "fotos/05-hopi-hari/foto8.jpeg", alt: "Hopi Hari" },
+            { url: "fotos/05-hopi-hari/foto9.jpeg", alt: "Hopi Hari" },
+            { url: "fotos/05-hopi-hari/foto10.jpeg", alt: "Hopi Hari" },
+            { url: "fotos/05-hopi-hari/foto11.jpeg", alt: "Hopi Hari" },
+            { url: "fotos/05-hopi-hari/foto12.jpeg", alt: "Hopi Hari" },
+            { url: "fotos/05-hopi-hari/foto13.jpeg", alt: "Hopi Hari" },
+            { url: "fotos/05-hopi-hari/foto14.jpeg", alt: "Hopi Hari" },
         ]
     },
     {
@@ -160,6 +183,7 @@ const trips = [
             { url: "fotos/07-hungria-mogi-das-cruzes/foto8.jpeg", alt: "Hungria - Mogi das Cruzes" },
             { url: "fotos/07-hungria-mogi-das-cruzes/foto9.jpeg", alt: "Hungria - Mogi das Cruzes" },
             { url: "fotos/07-hungria-mogi-das-cruzes/foto10.jpeg", alt: "Hungria - Mogi das Cruzes" },
+            { url: "fotos/07-hungria-mogi-das-cruzes/foto11.jpeg", alt: "Hungria - Mogi das Cruzes" },
         ]
     },
     {
